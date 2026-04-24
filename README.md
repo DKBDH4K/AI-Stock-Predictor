@@ -1,59 +1,97 @@
-# AI Stock Predictor 📈
+# 📈 AI Stock Predictor: Advanced Forecasting System
 
-AI Stock Predictor is an advanced, interactive web application that uses a powerful Ensemble Machine Learning model (LSTM Neural Network + Random Forest Regressor) to forecast stock prices. Built with a robust Flask backend and a modern, custom animated frontend.
+![Python Version](https://img.shields.io/badge/python-3.8%2B-blue.svg)
+![Framework](https://img.shields.io/badge/flask-%23000.svg?style=flat&logo=flask&logoColor=white)
+![Machine Learning](https://img.shields.io/badge/keras-LSTM-%23D00000.svg?style=flat&logo=Keras&logoColor=white)
+![Ensemble](https://img.shields.io/badge/sklearn-Random_Forest-F7931E.svg?style=flat&logo=scikit-learn&logoColor=white)
+![License](https://img.shields.io/badge/license-MIT-green.svg)
 
-By combining long-term sequential pattern recognition with non-linear decision tree logic, AI Stock Predictor performs reliably and accurately for forecasting stock price trends.
+**AI Stock Predictor** is a state-of-the-art, interactive web application that leverages an **Ensemble Machine Learning Architecture** (LSTM Neural Network + Random Forest Regressor) to forecast stock prices with high accuracy. The application features a robust Flask backend with intelligent caching, paired with a visually stunning, custom-animated glassmorphism frontend.
 
-## 🚀 Key Features
-**Accurate Ensemble Forecasting:** Combines a pre-trained Keras LSTM deep learning model with a dynamically trained Scikit-Learn Random Forest model. This ensemble approach significantly improves predictive accuracy by blending long-term sequential pattern recognition with non-linear decision tree logic.
-**Dynamic Data Scraping:** Uses the `yahooquery` API to bypass traditional rate limits and dynamically fetch up-to-date historical stock data on the fly.
-**Comprehensive Analytics:** Automatically calculates and displays the Root Mean Squared Error (RMSE), 5-year average performance, 12-month average performance, and total lifetime prediction accuracy.
-**Custom Interactive UI:** Features a completely custom HTML5 Canvas animated background with moving candlesticks and floating ticker symbols that react to your mouse movements, paired with beautiful typography (Michroma & Rajdhani fonts) and modern glassmorphism styling.
-**Alphabetized Selection:** Easily choose from a comprehensive, alphabetically sorted list of top Indian stocks.
+By blending the deep sequential pattern recognition of LSTMs with the non-linear decision tree logic of Random Forests, this platform provides reliable trend forecasting for over 100 top Indian stocks.
+
+---
+
+## ✨ Key Features & Enhancements
+
+- **🧠 Advanced Ensemble Forecasting:** A pre-trained deep learning Keras LSTM model combined with a dynamically trained Scikit-Learn Random Forest model. 
+- **⚡ High-Performance Architecture:** Implements thread-safe caching mechanisms for both YahooQuery financial data and Random Forest models, drastically reducing load times and redundant network calls.
+- **🌐 Dynamic Live Data:** Uses the `yahooquery` API to bypass traditional rate limits, fetching the latest market data on the fly.
+- **📊 Comprehensive Analytics:** Automatically calculates RMSE, 5-year average performance, 12-month average performance, and total lifetime prediction accuracy.
+- **🎨 Premium UI/UX:** A stunning HTML5 Canvas animated background with moving candlesticks, floating ticker symbols that react to mouse movements, premium typography, and dynamic Chart.js visualizations.
+- **🛡️ Robust Error Handling:** Graceful fallback mechanisms for model loading, network timeouts, and data validation to ensure uninterrupted user experience.
+
+---
 
 ## 🛠️ Technology Stack
-**Backend:** Python 3, Flask
-**Machine Learning Models:**
-- Keras, TensorFlow (`keras_model.h5`)
-- Scikit-Learn (Random Forest & Scalers)
-**Data Acquisition:** YahooQuery, Pandas, NumPy
-**Frontend:** HTML5 Canvas, CSS3, JavaScript, Chart.js
+
+**Backend Architecture:**
+- Python 3.8+
+- Flask (Web Server)
+- Threading & Caching (Performance Optimization)
+
+**Machine Learning Pipeline:**
+- Keras & TensorFlow (`keras_model.h5`)
+- Scikit-Learn (Random Forest Regressors, MinMax Scalers)
+- Pandas & NumPy (Data Processing)
+
+**Frontend Design:**
+- HTML5 Canvas & CSS3 (Glassmorphism & Micro-animations)
+- Vanilla JavaScript (Interactive elements)
+- Chart.js (Data Visualization)
+
+---
 
 ## 📁 Project Structure
-AI Stock Predictor/
-├── app.py                 # Core Flask application backend
-├── sort_options.py        # Alphabetized Indian stock list
+
+```text
+AI-Stock-Predictor/
+├── app.py                 # Core Flask backend with caching & error handling
+├── sort_options.py        # Utilities for stock options
 ├── keras_model.h5         # Pre-trained LSTM Neural Network weights
-├── model_training.ipynb   # Jupyter Notebook showing data gathering, preprocessing, and model training
-├── requirements.txt       # Python dependency list
-├── static/                # CSS/JS and static assets
-│   └── style.css          # Custom styling and glassmorphism UI
-└── templates/             # HTML templates 
-    └── index.html         # Main dashboard and landing page
+├── model_training.ipynb   # Jupyter Notebook: Data gathering & LSTM training
+├── requirements.txt       # Project dependencies
+├── static/                
+│   ├── style.css          # Advanced glassmorphism & UI animations
+│   └── script.js          # Interactive canvas, charts, and AJAX logic
+└── templates/             
+    └── index.html         # Main application dashboard
+```
+
+---
 
 ## ⚙️ Setup and Installation
-Clone the Repository and navigate to the project root.
-Install Dependencies:
-Make sure you have Python 3 installed. You will also need pip to install the required libraries.
-```bash
-pip install -r requirements.txt
-```
 
-## ▶️ Running the Application
-Start the local Flask web server:
-```bash
-python app.py
-```
-Open your web browser and navigate to:
-```
-http://127.0.0.1:5000/
-```
-**Note on Selection:** Select an Indian stock from the dropdown menu and click **Predict** to view the historical performance and AI forecasts!
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/deioncolaco28/AI-Stock-Predictor.git
+   cd AI-Stock-Predictor
+   ```
 
-## 🧠 How it Works
-**LSTM (Long Short-Term Memory):** The neural network uses a 100-day "lookback" window to evaluate sequential historical closing prices. The provided `keras_model.h5` contains the optimized, globally trained weights for the network.
-**Random Forest:** When a user selects a specific stock, a new Random Forest Regressor is dynamically trained in the backend specifically on that stock's historical data to capture immediate price action boundaries.
-**Ensemble Averaging:** The predictions from both models are averaged together to output a highly robust and accurate final price prediction.
+2. **Install Dependencies:**
+   Ensure Python 3.8+ is installed.
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. **Run the Application:**
+   ```bash
+   python app.py
+   ```
+
+4. **Access the Dashboard:**
+   Open your browser and navigate to `http://127.0.0.1:5000/`. Select an Indian stock from the dropdown and click **Predict**.
+
+---
+
+## 🧠 Under the Hood
+
+1. **LSTM (Long Short-Term Memory):** Uses a 100-day sliding window to evaluate historical closing prices, identifying long-term sequential patterns using optimized, pre-trained weights.
+2. **Random Forest Regressor:** A secondary model trained on-the-fly specifically for the selected ticker to capture immediate price boundaries and local volatility. (Now cached for speed!)
+3. **Ensemble Averaging:** The outputs from both models are merged to produce a robust final prediction, minimizing the individual weaknesses of both architectures.
+
+---
 
 ## ⚠️ Disclaimer
-This application is designed for educational and informational purposes only. It is not financial advice. The stock market is highly volatile and unpredictable. Always do your own research before making real-world investment decisions.
+
+This application is strictly for **educational and informational purposes only**. It does not constitute financial advice. The stock market is highly volatile, and AI predictions should not be solely relied upon for real-world investments. Always conduct your own research.
